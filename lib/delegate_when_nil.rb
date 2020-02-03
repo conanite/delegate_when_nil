@@ -39,3 +39,5 @@ module DelegateWhenNil
     }
   end
 end
+
+Module.send :include, DelegateWhenNil
