@@ -28,6 +28,21 @@ the expression locally first, and delegates to the target only if the local resu
       #   self.name || (parent && parent.name) # #name directly on parent instead of #get_name
       # end
 
+### delegate_when_blank
+
+`delegate_when_blank` works just like `delegate_when_nil`, except the criteria for delegation are
+more open. This gem uses the `not_blank` gem to determine blankness, so the results are not exactly
+in line with what you might expect if you are used to ActiveSupport's `blank?` implementation.
+
+    class Child
+      delegate_when_nil :last_name, to: :parent, prefix: :obtain
+
+      # equivalent to
+      # def obtain_last_name
+      #   self.last_name.nb || (parent && parent.obtain_last_name)
+      # end
+
+
 ## Installation
 
 Add this line to your application's Gemfile:

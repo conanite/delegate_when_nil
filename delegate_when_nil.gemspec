@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Like #delegate, but assumes the target method already exists, and delegates only when the local method returns nil}
   gem.homepage      = "https://github.com/conanite/delegate_when_nil"
 
+  gem.add_dependency 'not_blank'
   gem.add_development_dependency 'rspec'
 
   gem.files         = `git ls-files`.split($/)
