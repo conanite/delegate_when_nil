@@ -17,11 +17,13 @@ describe DelegateWhenNil do
     child = Child.new
     child.last_name = "Wong"
     expect(child.last_name).to eq "Wong"
+    expect(child.get_last_name).to eq "Wong"
   end
 
   it "does not get upset when everything is nil" do
     child = Child.new
     expect(child.last_name).to eq nil
+    expect(child.get_last_name).to eq nil
   end
 
   it "does not delegate when the property is present and the delegate target is also present" do
@@ -29,6 +31,7 @@ describe DelegateWhenNil do
     child.last_name = "Shaw"
     child.parent = Parent.new
     expect(child.last_name).to eq "Shaw"
+    expect(child.get_last_name).to eq "Shaw"
   end
 
   it "does not delegate when the property is present and the delegate target is also present" do
@@ -59,5 +62,6 @@ describe DelegateWhenNil do
     child.parent = Parent.new
     child.parent.last_name = "1234567"
     expect(child.size).to eq 21
+    expect(child.measure_size).to eq 21
   end
 end
